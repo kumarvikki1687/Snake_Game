@@ -13,7 +13,7 @@ aqua=(0,255,255)
 green=(0,155,0)
 gameExit=False
 clock=pygame.time.Clock()
-#cat=pygame.image.load('cat1.jpg')
+
 x=300
 y=300
 x_change=0
@@ -45,8 +45,8 @@ def print_msge(msg,score,color,color1):
     screen.blit(text,(200,200))
     screen.blit(text1,(250,230))
     screen.blit(text2,(270,290))
-#pygame.mixer.music.load('music.mp3')
-#pygame.mixer.music.play(5)
+pygame.mixer.music.load('music.mp3')
+pygame.mixer.music.play(5)
 def snake(d,snakelist):
     for XnY in snakelist:
         pygame.draw.rect(screen,black,[XnY[0],XnY[1],d,d]) #graw rect inside the screen
@@ -96,9 +96,8 @@ while not gameExit:
         score+=1
         pygame.display.set_caption("Score :  "+str(score)+ "     SNAKE GAME")
         pygame.display.update()
-        #print "om nom nom"
     clock.tick(7)
-#pygame.mixer.music.pause()
+pygame.mixer.music.pause()
 pygame.display.update()
 print_msge("You lose",score,red,black)
 pygame.display.update()
