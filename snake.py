@@ -27,6 +27,17 @@ snakelength=1
 font=pygame.font.SysFont(None,50) #define font and set size of font
 font1=pygame.font.SysFont(None,20)
 
+def pause():
+    pause1=True
+    while pause1:
+        for i in pygame.event.get():
+            if i.type==pygame.KEYDOWN:
+                if i.key==pygame.K_SPACE:
+                    pause1=False
+                    break
+    screen.fill(aqua)
+    pygame.display.update()
+                    
 def print_msge(msg,score,color,color1):
     text=font.render(msg,True,color)
     text1=font.render("Your score is " + str(score),True,color)
@@ -56,6 +67,8 @@ while not gameExit:
             elif i.key==pygame.K_DOWN:
                 y_change=20
                 x_change=0 #keep x_coordinate same
+            elif i.key==pygame.K_SPACE:
+                pause()
     if x>680 or x<0 or y>480 or y<0:
         gameExit=True
     x+=x_change
